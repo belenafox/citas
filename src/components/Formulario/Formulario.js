@@ -51,7 +51,7 @@ const Formulario = () => {
 		actualizarError(false);
 
 		// Asignar un id: en este proyecto se instalara una libreria uuid para asignar id
-		cita.id = uuidv4();
+		cita.id = uuidv4() // genera id unico;
 		console.log(cita);
 
 		// Crear la cita
