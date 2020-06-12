@@ -3,18 +3,33 @@ import React, { Fragment, useState } from 'react';
 const Formulario = () => {
 
 	// Crear state de citas
-	const { citas, actualizarCita } = useState({
-		mascota:'',
-		propietario:'',
-		fecha:'',
-		hora:'',
-		sintomas:''
+	const [cita, actualizarCita] = useState({
+		mascota: '',
+		propietario: '',
+		fecha: '',
+		hora: '',
+		sintomas: ''
 	});
 
 	// Función que se ejecuta cada vez que el usuario escribe en un input
-	const actualizarState = () => {
-		console.log('escribiendo')
+	const actualizarState = e => {
+
+		// se ve en que campo de esta escribiendo
+		// console.log(e.target.name);
+
+		// se ve que escribe el usuario
+		// console.log(e.target.value);
+	
+		actualizarCita({
+			// COPIA DEL OBJETO CITA
+			...cita,
+				// se escribe correctamente la información del input en la propiedad que se quiera agreagar
+				[e.target.name]: e.target.value 
+		})
 	}
+
+	// Extraer los valores
+	const { mascota, propietario, fecha, hora, sintomas } = cita;
 
 	return ( 
 		<Fragment>
@@ -28,6 +43,7 @@ const Formulario = () => {
 					className="u-full-width"
 					placeholder="Nombre mascota"
 					onChange={actualizarState}
+					value={mascota}
 				/>
 
 				<label>Nombre Dueño</label>
@@ -37,6 +53,7 @@ const Formulario = () => {
 					className="u-full-width"
 					placeholder="Nombre dueño de la mascota"
 					onChange={actualizarState}
+					value={propietario}
 				/>
 
 				<label>Fecha</label>
@@ -45,6 +62,7 @@ const Formulario = () => {
 					name="fecha"
 					className="u-full-width"
 					onChange={actualizarState}
+					value={fecha}
 				/>
 
 				<label>Nombre Dueño</label>
@@ -53,6 +71,7 @@ const Formulario = () => {
 					name="hora"
 					className="u-full-width"
 					onChange={actualizarState}
+					value={hora}
 				/>
 
 				<label>Síntomas</label>
@@ -60,6 +79,7 @@ const Formulario = () => {
 					className="u-full-width"
 					name="sintomas"
 					onChange={actualizarState}
+					value={sintomas}
 				></textarea>
 
 				<button
