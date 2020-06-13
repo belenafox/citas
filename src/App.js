@@ -1,11 +1,16 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import Formulario from './components/Formulario/Formulario';
 import Cita from './components/Formulario/Cita';
 
 function App() {
 
   // Arreglo de citas
-  const [citas, guardarCitas ] = useState([]);
+  const [citas, guardarCitas] = useState([]);
+
+  // useEffect para realizar ciertas operaciones cuando el state cambia, se ejecuta cuando el componente esta listo y tbn cuando hay una cambio de estado
+  useEffect(() => {
+    console.log('listo')
+  },[]);//para que se ejecute solo una vez, se pasa un arreglo vacio
 
   // Funcion que tome las citas actuales y agregue la nueva
   const crearCita = cita => {
