@@ -21,7 +21,7 @@ function App() {
     } else {
       localStorage.setItem('citas', JSON.stringify([]));
     }
-  },[citas]);//para que se ejecute solo una vez, se pasa un arreglo vacio--cuando el state de citas cambie, se ejecutara el useEffect
+  },[citas, citasIniciales]);//para que se ejecute solo una vez, se pasa un arreglo vacio--cuando el state de citas cambie, se ejecutara el useEffect
 
   // Funcion que tome las citas actuales y agregue la nueva
   const crearCita = cita => {
